@@ -49,19 +49,23 @@ function copyResult() {
     const text = resultDiv.innerText;
     if (!text) return;
 
-    navigator.clipboard.writeText(text).then(() => {
-        copyBtn.innerText = "✔ Kopiert";
-        copyBtn.classList.add("copied");
+    // Fallback-Methode (funktioniert auch offline)
+    const tempTextarea = document.createElement("textarea");
+    tempTextarea.value = text;
+    document.body.appendChild(tempTextarea);
+    tempTextarea.select();
+    tempTextarea.setSelectionRange(0, 99999); // mobile support
 
-        setTimeout(resetCopyButton, 1500);
-    });
+    document.execCommand("copy");
+    document.body.removeChild(tempTextarea);
+
+    copyBtn.innerText = "✔ Kopiert";
+    copyBtn.classList.add("copied");
+
+    setTimeout(resetCopyButton, 1500);
 }
 
 function resetCopyButton() {
     copyBtn.innerText = "📋 Kopieren";
     copyBtn.classList.remove("copied");
-}
-
-
-    resultDiv.innerText = result;
 }
