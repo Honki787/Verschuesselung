@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verschlüsselung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🔐 Verschlüsselung</h1>
+
+    <textarea id="message" placeholder="Nachricht eingeben"></textarea>
+
+    <input type="text" id="keyword" placeholder="Schlüsselwort eingeben">
+
+    <select id="mode">
+        <option value="encrypt">Verschlüsseln</option>
+        <option value="decrypt">Entschlüsseln</option>
+    </select>
+
+    <button id="actionBtn">Ausführen</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
